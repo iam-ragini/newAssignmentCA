@@ -57,14 +57,13 @@ footer {
 }
 
 .logo img {
-    max-width: 150px;
-    max-height: 100px;
+    max-width: 100px;
 }
 
 /* Blur effect */
 body::before {
     content: "";
-    background-image: url('background.jpg');
+    background-image: url('background.jpg'); /* Add path to your background image */
     position: fixed;
     top: 0;
     left: 0;
@@ -78,4 +77,38 @@ body::before {
 header, main, footer {
     position: relative;
     z-index: 1;
+}
+
+.gallery {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 20px;
+}
+
+.image-item {
+    text-align: center;
+}
+
+.image-item img {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.image-item p {
+    margin-top: 10px;
+}
+
+/* Media Queries */
+@media screen and (max-width: 768px) {
+    .gallery {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (max-width: 480px) {
+    .gallery {
+        grid-template-columns: repeat(1, 1fr);
+    }
 }
